@@ -1,4 +1,4 @@
-document.getElementById("chat-form").addEventListener("submit", async function (e) {
+ document.getElementById("chat-form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const userInput = document.getElementById("user-input");
@@ -14,14 +14,23 @@ document.getElementById("chat-form").addEventListener("submit", async function (
   botMessage.textContent = "Thinking...";
   messages.appendChild(botMessage);
 
-  const response = await fetch("/chat", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ message: userInput.value })
-  });
-
-  const data = await response.json();
-  botMessage.textContent = data.reply;
+  const userText = userInput.value;
   userInput.value = "";
+
+  try {
+    const response = await fetch("https://ada-chatbot-v1.onrender.com", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message: userText })
+    });
+
+    const data = await response.json();
+    botMessage.textContent = data.reply;
+  } catch (error) {
+    botMessage.textContent = "Sorry, something went wrong with the server.";
+  }
+
   messages.scrollTop = messages.scrollHeight;
 });
