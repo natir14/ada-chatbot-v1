@@ -2,33 +2,69 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ADA AI Chat Assistant</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MTA ADA Reservation Assistant</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>ADA AI Chat Assistant</h1>
-      <p>Smarter help for Access-A-Ride reservations</p>
-    </header>
-
-    <main>
-      <div id="chatbox">
-        <div class="messages" id="messages">
-          <div class="bot-message">Hello! I’m your AI assistant. Ask me anything about paratransit services.</div>
-        </div>
-        <form id="chat-form">
-          <input type="text" id="user-input" placeholder="Type your message here..." autocomplete="off" />
-          <button type="submit">Send</button>
-        </form>
-      </div>
-    </main>
-
-    <footer>
-      <p>&copy; 2025 ADA AI Assistant Project</p>
-    </footer>
+  <nav class="navbar">
+  <div class="nav-container">
+    <div class="nav-logo">MTA ADA Assistant</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="https://new.mta.info/accessibility/paratransit" target="_blank">MTA Access-A-Ride</a></li>
+    </ul>
   </div>
+</nav>
+
+  <header class="hero">
+  <h1>MTA ADA Reservation Assistant</h1>
+  <p>Your virtual guide for Access-A-Ride bookings and support</p>
+</header>
+
+
+  <main class="container">
+    <section id="about">
+      <h2>About Access-A-Ride</h2>
+      <p>
+        Access-A-Ride (AAR) is the MTA's paratransit service that provides accessible transportation for New Yorkers with disabilities.
+        This virtual assistant can help you with reservations, fare info, and general support.
+      </p>
+
+      <div class="image-gallery">
+        <img src="image 1.webp" alt="Passenger boarding" />
+        <img src="image 2.webp" alt="Access-A-Ride vehicle" />
+        <img src="image 3.jpg" alt="Paratransit service" />
+      </div>
+
+      <div class="links">
+        <a href="https://new.mta.info/accessibility/paratransit" target="_blank">Learn more at MTA Paratransit</a>
+        <a href="#contact">Contact Us</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Floating Chat Icon -->
+  <div id="chat-icon">
+    💬
+  </div>
+
+  <!-- Chatbot Modal -->
+  <div id="chatbot-modal">
+    <div class="chatbox">
+      <div class="chatbox-messages" id="messages">
+        <div class="bot-message">Hello! I'm your AI assistant. Ask me anything about Access-A-Ride.</div>
+      </div>
+      <form id="chat-form" class="chat-form">
+        <input type="text" id="user-input" placeholder="Type your message..." required />
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="footer">
+    &copy; 2025 MTA ADA Assistant | Designed with ❤️ for accessibility.
+  </footer>
 
   <script src="script.js"></script>
 </body>

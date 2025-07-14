@@ -1,3 +1,10 @@
+ 
+ 
+ document.getElementById("chat-icon").addEventListener("click", function () {
+  document.getElementById("chatbot-modal").classList.toggle("open");
+});
+
+ 
  document.getElementById("chat-form").addEventListener("submit", async function (e) {
   e.preventDefault();
 
