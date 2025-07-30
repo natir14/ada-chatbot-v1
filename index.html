@@ -55,10 +55,21 @@
       <div class="chatbox-messages" id="messages">
         <div class="bot-message">Hello! I'm your AI assistant. Ask me anything about Access-A-Ride.</div>
       </div>
-      <form id="chat-form" class="chat-form">
-        <input type="text" id="user-input" placeholder="Type your message..." required />
-        <button type="submit">Send</button>
-      </form>
+        <form id="chat-form" class="chat-form">
+          <input type="text" id="user-input" placeholder="Type your message..." required />
+          <button type="submit">Send</button>
+        </form>
+
+        <button id="toggle-schedule" class="schedule-button">Schedule Trip</button>
+
+        <form id="schedule-form" class="schedule-form">
+          <input type="text" id="user-name" placeholder="Your Name" required />
+          <input type="text" id="pickup" placeholder="Pickup Location" required />
+          <input type="text" id="dropoff" placeholder="Dropoff Location" required />
+          <input type="date" id="trip-date" required />
+          <input type="time" id="trip-time" required />
+          <button type="submit">Submit</button>
+        </form>
     </div>
   </div>
 
