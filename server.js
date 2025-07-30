@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const fs = require("fs");
+const path = require("path");
 require("dotenv").config();
 const OpenAI = require("openai"); // ✅ updated import
 
@@ -25,6 +27,28 @@ app.post("/chat", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to fetch response from OpenAI" });
+  }
+});
+
+app.post("/schedule", (req, res) => {
+  const trip = req.body;
+  const dataFile = path.join(__dirname, "trips.json");
+
+  try {
+    let trips = [];
+    if (fs.existsSync(dataFile)) {
+      const content = fs.readFileSync(dataFile, "utf8");
+      if (content) {
+        trips = JSON.parse(content);
+      }
+    }
+
+    trips.push(trip);
+    fs.writeFileSync(dataFile, JSON.stringify(trips, null, 2));
+    res.json({ message: "Trip scheduled successfully" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to schedule trip" });
   }
 });
 

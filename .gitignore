@@ -1,2 +1,4 @@
 node_modules
 .env
+trips.json
+package-lock.json
